@@ -1,21 +1,21 @@
 {
-  "name": "Chetan",
+  "name": "Matthew Thompkins",
   "headerTaglineOne": "Hello 👋",
-  "headerTaglineTwo": "I'm Chetan Verma - curious",
-  "headerTaglineThree": "designer and devloper",
-  "headerTaglineFour": " based in New Delhi, India.",
+  "headerTaglineTwo": "I'm Matthew - Experienced Full Stack Software Engineer & Technical Product Manager",
+  "headerTaglineThree": "Frontend & Backend",
+  "headerTaglineFour": " based in Pittsburgh, PA.",
   "showBlog": true,
   "darkMode": true,
   "socials": [
     {
       "id": "1",
       "title": "Github",
-      "link": "https://github.com/chetanverma16"
+      "link": "https://github.com/maxiujin"
     },
     {
       "id": "2",
       "title": "LinkedIn",
-      "link": "https://www.linkedin.com/in/chetanverma7/"
+      "link": "https://www.linkedin.com/in/matthew-thompkins-b965a412/"
     },
     {
       "id": "3",
