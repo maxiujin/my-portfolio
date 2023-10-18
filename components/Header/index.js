@@ -105,7 +105,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll }) => {
               Resume
             </Button>
           )}
-          <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
+          <Button onClick={() => window.open("mailto:alkeccg@gmail.com")}>
             Contact
           </Button>
           {mounted && theme && data.darkMode && (
