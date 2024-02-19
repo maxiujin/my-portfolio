@@ -7,7 +7,7 @@ const Resume = () => {
       <Header isBlog />
       <div className="flex flex-col items-center justify-center">
         {/* Add a link to the PDF file */}
-        <a style={{color:"#006284"}} href="/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+        <a style={{color:"#24936E"}} href="/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
       </div>
     </div>
   );
