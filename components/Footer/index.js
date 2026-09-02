@@ -1,33 +1,32 @@
 import React from "react";
 import Socials from "../Socials";
-import Link from "next/link";
 import Button from "../Button";
+import data from "../../data/portfolio.json";
 
 const Footer = ({}) => {
   return (
     <>
-      <div className="mt-5 laptop:mt-40 p-2 laptop:p-0">
-        <div>
-          <h1 className="text-2xl text-bold">Contact.</h1>
-          <div className="mt-10">
-            <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
-              LET&apos;S WORK
-            </h1>
-            <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
-              TOGETHER
-            </h1>
-            <Button type="primary">Schedule a call</Button>
-            <div className="mt-10">
-              <Socials />
-            </div>
+      <div className="mt-20 laptop:mt-40 p-2 laptop:p-0">
+        <div className="glass glow-card rounded-3xl p-8 laptop:p-16 text-center">
+          <h1 className="text-xs tracking-[0.3em] uppercase opacity-50">Contact</h1>
+          <h1 className="mt-4 text-4xl tablet:text-6xl laptop:text-7xl laptopl:text-8xl font-bold gradient-text leading-none">
+            LET&apos;S WORK
+          </h1>
+          <h1 className="text-4xl tablet:text-6xl laptop:text-7xl laptopl:text-8xl font-bold gradient-text leading-none">
+            TOGETHER
+          </h1>
+          <div className="mt-8 flex justify-center">
+            <Button type="primary" onClick={() => window.open(`mailto:${data.socials?.find(s => s.title === "Email")?.link?.replace("mailto:", "") || "alkeccg@gmail.com"}`)}>
+              Say hello
+            </Button>
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Socials />
           </div>
         </div>
       </div>
-      <h1 className="text-sm text-bold mt-2 laptop:mt-10 p-2 laptop:p-0">
-        {/* Made With ❤ by{" "}
-        <Link href="http://www.chetanverma.com">
-          <a className="underline underline-offset-1">Chetan Verm</a>
-        </Link> */}
+      <h1 className="text-sm mt-8 p-2 laptop:p-0 text-center opacity-40">
+        Built by {data.name}
       </h1>
     </>
   );

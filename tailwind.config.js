@@ -12,7 +12,16 @@ module.exports = {
       desktop: "1280px",
       laptopl: "1440px",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Space Grotesk", "Inter", "sans-serif"],
+      },
+      colors: {
+        accent1: "#7c3aed",
+        accent2: "#22d3ee",
+        accent3: "#f472b6",
+      },
+    },
   },
   plugins: [],
 };

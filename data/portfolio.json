@@ -1,36 +1,254 @@
-{"name":"Matthew Thompkins","headerTaglineOne":"Hello 👋","headerTaglineTwo":"I'm Matthew - Full stack software developer with management experience","headerTaglineThree":"Crafting Seamless Experiences: Expert in Frontend, Backend, SaaS platforms, Data Analytics & Visualization","headerTaglineFour":" based in Pittsburgh, PA.","showBlog":true,"darkMode":true,"socials":[{"id":"1","title":"Github","link":"https://github.com/maxiujin"},{"id":"2","title":"LinkedIn","link":"https://www.linkedin.com/in/matthew-thompkins-b965a412/"},{"id":"3","title":"Email","link":"mailto:alkeccg@gmail.com"}],"dataprojects": [
+{
+  "name": "Matthew Thompkins",
+  "headerTaglineOne": "Hello \ud83d\udc4b",
+  "headerTaglineTwo": "I'm Matthew - Full stack software developer with management experience",
+  "headerTaglineThree": "Crafting Seamless Experiences: Expert in Frontend, Backend, SaaS platforms, Data Analytics & Visualization",
+  "headerTaglineFour": " based in Pittsburgh, PA.",
+  "showBlog": true,
+  "darkMode": true,
+  "socials": [
     {
-        "id": "1",
-        "title": "Microsoft Power Bi small dataset",
-        "description": "dataset less than 10,000",
-        "imageSrc": "/db_3.jpg",
-        "url": ""
+      "id": "1",
+      "title": "Github",
+      "link": "https://github.com/maxiujin"
     },
     {
-        "id": "2",
-        "title": "Microsoft Power Bi medium dataset",
-        "description": "dataset more than 100,000 but less than 500K",
-        "imageSrc": "/db_1.png",
-        "url": ""
+      "id": "2",
+      "title": "LinkedIn",
+      "link": "https://www.linkedin.com/in/matthew-thompkins-b965a412/"
     },
     {
-        "id": "3",
-        "title": "Microsoft Power Bi advanced dataset",
-        "description": "dataset 500k and up",
-        "imageSrc": "/db_2.png",
-        "url": ""
+      "id": "3",
+      "title": "Email",
+      "link": "mailto:alkeccg@gmail.com"
     }
-],
-
-
-
-
-"projects":[{"id":"1","title":"Goverment data-driven platform","description":"MERN stack built in React.js, over 500k non-profit users","imageSrc":"/parn1.png","url":""},{"id":"2","title":"Winshu","description":"Produced and designed a 4 v 4 bright colorful multiplayer game that has Chinese mythological creatures based on (Chinese guardian lions, aka lion dogs aka foo dogs). These lions have elemental powers such as fire, water, wood, metal and earth.","imageSrc":"/winshu_gaming.png","url":"https://store.steampowered.com/app/2018020/Winshu/"},{"id":"3","title":"NFT shopping landing page","description":"Modern UI design","imageSrc":"/parn2.png","url":"https://tribez-marketplace.web.app/"},{"id":"4","title":"Scheduling app","description":"AWS deployed app with React.js","imageSrc":"/parn3.png","url":"https://foamlaundry.com.au/"},{"id":"5","title":"E-Commerce clothing one stop shop","description":"Built online payment system","imageSrc":"/parn4.png","url":"https://plus2clothing.com"},{"id":"6","title":"Data-Driven E-Commerce Site","description":"AWS+React+Typescript","imageSrc":"/parn5.png","url":"https://doogma.com/"},
-{"id":"AI Machine Learning SaaS Platform","title":"AI Machine Learning SaaS Platform","description":"Used Python's Pytorch for machine learning and building a data-driven platform","imageSrc":"/parn6.png","url":"https://www.centerya.com/"}],"skills":[{"id":"1","title":"Agile & scrum development","description":"I'm a developer with robust Agile experience, including proficiency in tools such as Figma, Jira, and Asana. I thrive in collaborative, fast-paced environments, leveraging Agile methodologies to swiftly adapt, fulfill client requirements, and secure project success. My Agile mindset champions flexibility, transparency, and a customer-centric approach, consistently delivering projects efficiently, on schedule, and to the satisfaction of stakeholders","imageSrc":""},{"id":"2","title":"Cloud computing and serverless architecture","description":"I have experience deploying apps on AWS, Digital Ocean, Microsoft Azure and Google's GCP."},{"id":"3","title":"Coding tools","description":"Expert in Git and Github can do code reviews, fork repos and work in large teams to improve and streamline existing code."},{"id":"4","title":"A.I. & Data analytics","description":"I have a strong foundation in A.I. and Machine Learning, leveraging top libraries such as PyTorch and TensorFlow for deep learning projects. In addition, I excel in Data Analytics, using industry-leading tools like KNIME and Tableau to extract actionable insights from complex datasets, driving informed decision-making for your business."}],"aboutpara":"I am a versatile Full Stack Engineer and my tech stack includes the MERN (MongoDB, Express, React, Node.js) stack with GraphQL and Typescript. For machine learning and AI I use Python/Django. With a passion for crafting efficient and user-friendly web applications. My commitment to clean code, problem-solving, and staying up-to-date with the latest industry trends makes me a valuable asset to any development team. Let's collaborate to build innovative solutions that drive results. I am bilingual in English and Mandarin Chinese. Additionally, I have a passion for playing and watching ice hockey!",
-
-
-
-"resume":{"tagline":"👋  I'm a software engineer, product designer, and maker.","description":"In the tech industry, I've honed my skills by developing and deploying websites and applications built with React and Javascript/TypeScript. Familiar with the full spectrum of application development, I'm well-acquainted with the responsibility of crafting bug-free applications and consistently producing tangible results. As a versatile professional, I've played pivotal roles in agile teams, both as a Product Manager and as a Full Stack Engineer. Proficient in agile and scrum methodologies, I've successfully led cross-functional teams to drive project outcomes. My dedication to ongoing education and adaptability ensures I stay at the forefront of emerging technologies, providing a unique blend of technical expertise and leadership to all endeavors.","experiences":[{"id":"1","dates":"March 2022 - Present","type":"Full Time","position":"Frontend Engineer at X","bullets":["Worked on the frontend of a React application","Worked on the frontend of a React application"]},{"id":"2","dates":"March 2020 - March 2022","type":"Full Time","position":"Frontend Engineer at X","bullets":["Worked on the frontend of a React application"]}],"education":{"universityName":"University X","universityDate":"2016-2020","universityPara":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"},"languages":["Javascript","HTML5","CSS","Python"],"frameworks":["React","Typescript","NodeJs"],"others":["Figma","AdobeXD","AWS"]},"showResume":true}
-
-
-
+  ],
+  "dataprojects": [
+    {
+      "id": "1",
+      "title": "Microsoft Power Bi small dataset",
+      "description": "dataset less than 10,000",
+      "imageSrc": "/db_3.jpg",
+      "url": ""
+    },
+    {
+      "id": "2",
+      "title": "Microsoft Power Bi medium dataset",
+      "description": "dataset more than 100,000 but less than 500K",
+      "imageSrc": "/db_1.png",
+      "url": ""
+    },
+    {
+      "id": "3",
+      "title": "Microsoft Power Bi advanced dataset",
+      "description": "dataset 500k and up",
+      "imageSrc": "/db_2.png",
+      "url": ""
+    }
+  ],
+  "projects": [
+    {
+      "id": "soku-trade",
+      "title": "SokuTrade",
+      "description": "Free futures paper-trading simulator \u2014 live prices, real market news, and a gamified practice account with zero real money at risk.",
+      "imageSrc": "/sokutrade.jpg",
+      "url": "https://www.sokutrade.com"
+    },
+    {
+      "id": "mainu",
+      "title": "Mainu (Steam & Android)",
+      "description": "Hand-drawn 2D action RPG published solo under Kanmai LLC. Join Tonu through a mall collecting capsule toys and battling bosses \u2014 8-language localization, full Steamworks integration.",
+      "imageSrc": "/mainu-steam.jpg",
+      "url": "https://store.steampowered.com/app/3553610/Mainu/"
+    },
+    {
+      "id": "1",
+      "title": "Goverment data-driven platform",
+      "description": "MERN stack built in React.js, over 500k non-profit users",
+      "imageSrc": "/parn1.png",
+      "url": ""
+    },
+    {
+      "id": "2",
+      "title": "Winshu",
+      "description": "Produced and designed a 4 v 4 bright colorful multiplayer game that has Chinese mythological creatures based on (Chinese guardian lions, aka lion dogs aka foo dogs). These lions have elemental powers such as fire, water, wood, metal and earth.",
+      "imageSrc": "/winshu_gaming.png",
+      "url": "https://store.steampowered.com/app/2018020/Winshu/"
+    },
+    {
+      "id": "3",
+      "title": "NFT shopping landing page",
+      "description": "Modern UI design",
+      "imageSrc": "/parn2.png",
+      "url": "https://tribez-marketplace.web.app/"
+    },
+    {
+      "id": "4",
+      "title": "Scheduling app",
+      "description": "AWS deployed app with React.js",
+      "imageSrc": "/parn3.png",
+      "url": "https://foamlaundry.com.au/"
+    },
+    {
+      "id": "5",
+      "title": "E-Commerce clothing one stop shop",
+      "description": "Built online payment system",
+      "imageSrc": "/parn4.png",
+      "url": "https://plus2clothing.com"
+    },
+    {
+      "id": "6",
+      "title": "Data-Driven E-Commerce Site",
+      "description": "AWS+React+Typescript",
+      "imageSrc": "/parn5.png",
+      "url": "https://doogma.com/"
+    },
+    {
+      "id": "AI Machine Learning SaaS Platform",
+      "title": "AI Machine Learning SaaS Platform",
+      "description": "Used Python's Pytorch for machine learning and building a data-driven platform",
+      "imageSrc": "/parn6.png",
+      "url": "https://www.centerya.com/"
+    }
+  ],
+  "skills": [
+    {
+      "id": "1",
+      "title": "Agile & scrum development",
+      "description": "I'm a developer with robust Agile experience, including proficiency in tools such as Figma, Jira, and Asana. I thrive in collaborative, fast-paced environments, leveraging Agile methodologies to swiftly adapt, fulfill client requirements, and secure project success. My Agile mindset champions flexibility, transparency, and a customer-centric approach, consistently delivering projects efficiently, on schedule, and to the satisfaction of stakeholders",
+      "imageSrc": ""
+    },
+    {
+      "id": "2",
+      "title": "Cloud computing and serverless architecture",
+      "description": "I have experience deploying apps on AWS, Digital Ocean, Microsoft Azure and Google's GCP."
+    },
+    {
+      "id": "3",
+      "title": "Coding tools",
+      "description": "Expert in Git and Github can do code reviews, fork repos and work in large teams to improve and streamline existing code."
+    },
+    {
+      "id": "4",
+      "title": "A.I. & Data analytics",
+      "description": "I have a strong foundation in A.I. and Machine Learning, leveraging top libraries such as PyTorch and TensorFlow for deep learning projects. In addition, I excel in Data Analytics, using industry-leading tools like KNIME and Tableau to extract actionable insights from complex datasets, driving informed decision-making for your business."
+    }
+  ],
+  "aboutpara": "I am a versatile Full Stack Engineer and my tech stack includes the MERN (MongoDB, Express, React, Node.js) stack with GraphQL and Typescript. For machine learning and AI I use Python/Django. With a passion for crafting efficient and user-friendly web applications. My commitment to clean code, problem-solving, and staying up-to-date with the latest industry trends makes me a valuable asset to any development team. Let's collaborate to build innovative solutions that drive results. I am bilingual in English and Mandarin Chinese. Additionally, I have a passion for playing and watching ice hockey!",
+  "resume": {
+    "tagline": "\ud83d\udc4b I'm a software engineer and indie game developer.",
+    "description": "Senior Full Stack Developer and Indie Game Developer with experience across web, mobile, cloud, and Unity-based game development. Proven ability to ship complete products end-to-end \u2014 frontend, backend, infrastructure, localization, and publishing. Strong background in Angular, React, TypeScript, AWS, and C#, with public trust and top secret clearance experience.",
+    "experiences": [
+      {
+        "id": "1",
+        "dates": "Jan 2024 \u2013 Present",
+        "type": "Founder & Lead Game Developer",
+        "position": "Kanmai LLC \u2014 Mainu (Steam & Android)",
+        "bullets": [
+          "Designed, developed, and published a complete commercial game using Unity and C#.",
+          "Built combat systems, AI, progression, save/load, UI, and particle systems.",
+          "Created 100% original hand-drawn art, animations, and environments.",
+          "Implemented an 8-language localization system with dynamic fonts and JSON pipelines.",
+          "Managed Steamworks setup, cloud saves, achievements, publishing, and marketing assets."
+        ]
+      },
+      {
+        "id": "2",
+        "dates": "Jun 2024 \u2013 Apr 2025",
+        "type": "Contract",
+        "position": "Angular Developer \u2014 Alaska Northstar (FEMA Contractor)",
+        "bullets": [
+          "Developed accessible UI components for FloodSmart.gov using Angular.",
+          "Built responsive, WCAG-compliant interfaces aligned with federal design standards.",
+          "Wrote unit tests with Jasmine and participated in Agile sprint cycles."
+        ]
+      },
+      {
+        "id": "3",
+        "dates": "Jul 2022 \u2013 Oct 2023",
+        "type": "Full Time",
+        "position": "Full Stack Developer \u2014 BCT Partners",
+        "bullets": [
+          "Led development of a nonprofit analytics dashboard using the MERN stack and Next.js.",
+          "Deployed scalable infrastructure with AWS EC2, Elastic Beanstalk, and Terraform.",
+          "Implemented SEO optimization, security practices, and database integrations."
+        ]
+      },
+      {
+        "id": "4",
+        "dates": "Jan 2020 \u2013 Jun 2022",
+        "type": "Full Time",
+        "position": "AI / QA Engineer \u2014 Meetkai",
+        "bullets": [
+          "Built NLP tooling using Python and PyTorch.",
+          "Automated QA workflows with Selenium WebDriver for AI systems."
+        ]
+      },
+      {
+        "id": "5",
+        "dates": "Jan 2018 \u2013 Nov 2019",
+        "type": "Full Time",
+        "position": "Full Stack Developer \u2014 Edvoyage",
+        "bullets": [
+          "Developed a live streaming platform and Android app using React and Nest.js.",
+          "Deployed cloud infrastructure on AWS with a focus on scalability and reliability."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "universityName": "University of Pittsburgh",
+        "universityDate": "M.S. Public Administration",
+        "universityPara": ""
+      },
+      {
+        "universityName": "Cal Poly Humboldt",
+        "universityDate": "B.A. International Business",
+        "universityPara": ""
+      }
+    ],
+    "aiWorkflow": [
+      "Prompt Engineering",
+      "AI-Assisted Development",
+      "LLM Workflow Optimization",
+      "Cursor",
+      "Claude",
+      "OpenAI API Integration",
+      "Test-Driven AI Iteration",
+      "Automation of Documentation & Code Generation"
+    ],
+    "languages": [
+      "Angular",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Unity (C#)",
+      "AWS",
+      "MongoDB",
+      "PostgreSQL",
+      "Node.js",
+      "Next.js"
+    ],
+    "frameworks": [
+      "Docker",
+      "Terraform",
+      "Python",
+      "Selenium",
+      "Jasmine",
+      "Android",
+      "REST APIs",
+      "Localization",
+      "Agile"
+    ],
+    "others": [
+      "English (Native)",
+      "Mandarin Chinese (Fluent, HSK Certificate)"
+    ],
+    "certifications": [
+      "HSK Certificate",
+      "Public Trust Clearance",
+      "Top Secret Clearance"
+    ]
+  },
+  "showResume": true
+}

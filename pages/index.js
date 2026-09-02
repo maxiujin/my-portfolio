@@ -14,6 +14,18 @@ import Cursor from "../components/Cursor";
 // Local Data
 import data from "../data/portfolio.json";
 
+const SectionLabel = ({ children }) => (
+  <div className="flex items-center gap-3 mb-6">
+    <span
+      className="h-px w-10"
+      style={{ background: "linear-gradient(90deg, var(--accent-1), var(--accent-2))" }}
+    ></span>
+    <h1 className="text-xs tablet:text-sm tracking-[0.3em] uppercase opacity-50">
+      {children}
+    </h1>
+  </div>
+);
+
 export default function Home() {
   // Ref
   const workRef = useRef();
@@ -57,104 +69,108 @@ export default function Home() {
 
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
+      <div className="noise-overlay"></div>
 
-      <div className="container mx-auto mb-10">
+      <div className="container relative z-10 mx-auto mb-10">
         <Header
           handleWorkScroll={handleWorkScroll}
           handleAboutScroll={handleAboutScroll}
         />
-        <div className="laptop:mt-20 mt-10">
-          <div className="mt-5">
+        <div className="laptop:mt-24 mt-14">
+          <div className="chip inline-flex mb-6 mob:ml-1">
+            <span className="h-2 w-2 rounded-full mr-2" style={{ background: "var(--accent-2)" }}></span>
+            Full stack &amp; indie game developer
+          </div>
+          <div className="mt-2">
             <h1
               ref={textOne}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
+              className="text-4xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 font-bold w-4/5 mob:w-full laptop:w-4/5"
             >
               {data.headerTaglineOne}
             </h1>
             <br></br>
             <h1
               ref={textTwo}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-4xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 font-bold w-full laptop:w-4/5 gradient-text"
             >
               {data.headerTaglineTwo}
             </h1>
             <br></br>
-            <h1 style={{fontSize:32}}
+            <h1
               ref={textThree}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-xl tablet:text-3xl laptop:text-3xl p-1 tablet:p-2 font-medium w-full laptop:w-3/5 opacity-70"
             >
               {data.headerTaglineThree}
             </h1>
             <br></br>
-            <h1 style={{fontSize:32}}
-
+            <h1
               ref={textFour}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-xl tablet:text-3xl laptop:text-3xl p-1 tablet:p-2 font-medium w-full laptop:w-3/5 opacity-70"
             >
               {data.headerTaglineFour}
             </h1>
           </div>
 
-          <Socials className="mt-2 laptop:mt-5" />
-        </div>
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="text-2xl text-bold">Full stack projects: React, Node, Python etc.</h1>
+          <div className="mt-6 flex flex-wrap gap-2 p-1 tablet:p-2">
+            <Button type="primary" onClick={handleWorkScroll}>See my work</Button>
+            <Button onClick={() => window.open("/resume")}>View resume</Button>
+          </div>
 
-          <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
+          <Socials className="mt-4 laptop:mt-8" />
+        </div>
+
+        <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={workRef}>
+          <SectionLabel>Selected work</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">Full stack &amp; game projects</h1>
+
+          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6">
             {data.projects.map((project) => (
               <WorkCard
                 key={project.id}
                 img={project.imageSrc}
                 name={project.title}
                 description={project.description}
-                onClick={() => window.open(project.url)}
+                onClick={() => project.url && window.open(project.url)}
               />
             ))}
           </div>
         </div>
 
-<br></br>
-<br></br>
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="text-2xl text-bold">Data projects: data visualization</h1>
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <SectionLabel>Data &amp; analytics</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">Data visualization</h1>
 
-          <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
+          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6">
             {data.dataprojects.map((dataproject) => (
               <WorkCard
                 key={dataproject.id}
                 img={dataproject.imageSrc}
                 name={dataproject.title}
                 description={dataproject.description}
-                onClick={() => window.open(dataproject.url)}
+                onClick={() => dataproject.url && window.open(dataproject.url)}
               />
             ))}
           </div>
         </div>
 
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="tablet:m-10 text-2xl text-bold">Skills</h1>
-          <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <SectionLabel>Capabilities</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">Skills</h1>
+          <div className="mt-8 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.skills.map((service, index) => (
               <ServiceCard
                 key={index}
                 name={service.title}
                 description={service.description}
-              
               />
             ))}
           </div>
         </div>
-        {/* This button should not go into production */}
-        {/* {process.env.NODE_ENV === "development" && (
-          <div className="fixed bottom-5 right-5">
-            <Link href="/edit">
-              <Button type="primary">Edit Data</Button>
-            </Link>
-          </div>
-        )} */}
-        <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:m-10 text-2xl text-bold">About me</h1>
-          <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5" style={{ lineHeight: "1.5" }}>
+
+        <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
+          <SectionLabel>About</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-6">About me</h1>
+          <p className="text-lg laptop:text-2xl w-full laptop:w-3/5 opacity-70" style={{ lineHeight: "1.6" }}>
             {data.aboutpara}
           </p>
         </div>

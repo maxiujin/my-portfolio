@@ -9,13 +9,12 @@ const ServiceCard = ({ name, description }) => {
     setMounted(true);
   }, []);
   return (
-    <div
-      className={`w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 ${
-        mounted && theme === "dark" ? "hover:bg-slate-800" : "hover:bg-slate-50"
-      } hover:scale-105 link`}
-    >
-      <h1 className="text-3xl">{name ? name : "Heading"}</h1>
-      <p className="mt-5 opacity-40 text-xl">
+    <div className="glow-card glass w-full p-5 mob:p-6 link">
+      <div className="flex items-center gap-2">
+        <span className="h-2 w-2 rounded-full" style={{ background: "linear-gradient(135deg, var(--accent-1), var(--accent-2))" }}></span>
+        <h1 className="text-2xl laptop:text-3xl font-semibold">{name ? name : "Heading"}</h1>
+      </div>
+      <p className="mt-4 opacity-50 text-base laptop:text-lg">
         {description
           ? description
           : "I'm a hardworking engineer that can work in big teams and can lead teams as well. "}

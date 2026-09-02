@@ -1,46 +1,164 @@
-@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import "./markdown.css";
 
+:root {
+  --accent-1: #7c3aed;
+  --accent-2: #22d3ee;
+  --accent-3: #f472b6;
+}
+
 * {
-  font-family: "Hind";
+  font-family: "Space Grotesk", "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   @apply dark:bg-black dark:text-white;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
 }
 
+body.dark,
+html.dark body {
+  background-color: #06060a;
+}
+
+::selection {
+  background: var(--accent-1);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-1), var(--accent-2));
+  border-radius: 10px;
+}
+
+/* --- Ambient background blobs --- */
 .gradient-circle {
-  position: absolute;
+  position: fixed;
   pointer-events: none;
-  z-index: 100;
-  top: -30px;
-  height: 40px;
-  width: 100vw;
-  opacity: 0.5;
-  filter: blur(40px);
-  background: rgb(37, 150, 190)radial-gradient(
-    circle,
-    rgb(37, 150, 190) 0%,
-    rgb(5, 43, 56) 100%
-  );
+  z-index: 0;
+  top: -10%;
+  left: -10%;
+  height: 55vh;
+  width: 55vw;
+  opacity: 0.35;
+  filter: blur(90px);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-1) 0%, transparent 70%);
+  animation: drift-a 22s ease-in-out infinite alternate;
 }
 .gradient-circle-bottom {
-  position: absolute;
+  position: fixed;
   pointer-events: none;
-  z-index: 100;
-  bottom: -20px;
-  height: 30px;
-  width: 100vw;
-  opacity: 0.5;
-  filter: blur(40px);
-  background: radial-gradient(
-    circle,
-    rgba(248, 107, 223, 1) 0%,
-    rgba(107, 107, 248, 0.8) 100%
-  );
+  z-index: 0;
+  bottom: -15%;
+  right: -10%;
+  height: 60vh;
+  width: 50vw;
+  opacity: 0.3;
+  filter: blur(100px);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
+  animation: drift-b 26s ease-in-out infinite alternate;
+}
+@keyframes drift-a {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(6vw, 8vh) scale(1.15); }
+}
+@keyframes drift-b {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-5vw, -6vh) scale(1.1); }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Gradient text --- */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2) 60%, var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- Glass surface --- */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+html:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Glow border card, used by WorkCard/ServiceCard --- */
+.glow-card {
+  position: relative;
+  border-radius: 1.1rem;
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.glow-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px -20px rgba(124, 58, 237, 0.45);
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Pill nav / chips --- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+}
+html:not(.dark) .chip {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.chip:hover {
+  border-color: var(--accent-2);
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 .gradient-shadow:hover::before {
@@ -51,7 +169,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(-45deg, #45caff 0%, #ff1b6b 100%);
+  background: linear-gradient(-45deg, var(--accent-2) 0%, var(--accent-3) 100%);
   transform: translate3d(0px, 20px, 0) scale(0.95);
   filter: blur(20px);
   opacity: var(0.7);
@@ -59,11 +177,6 @@ body {
   border-radius: inherit;
 }
 
-/* 
-* Prevents issues when the parent creates a 
-* stacking context. (For example, using the transform
-* property )
-*/
 .gradient-shadow:hover::after {
   content: "";
   z-index: -1;

@@ -10,7 +10,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll }) => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  const { name, resume } = data;  // Update this line
+  const { name, resume } = data;
+  const email = data.socials?.find((s) => s.title === "Email")?.link || "mailto:alkeccg@gmail.com";
 
   useEffect(() => {
     setMounted(true);
@@ -18,13 +19,13 @@ const Header = ({ handleWorkScroll, handleAboutScroll }) => {
 
   return (
     <>
-      <Popover className="block tablet:hidden mt-5">
+      <Popover className="glass rounded-2xl block tablet:hidden mt-5 relative z-20">
         {({ open }) => (
           <>
             <div className="flex items-center justify-between p-2 laptop:p-0">
               <h1
                 onClick={() => router.push("/")}
-                className="font-medium p-2 laptop:p-0 link"
+                className="font-semibold text-lg p-2 laptop:p-0 link gradient-text"
               >
                 {name}.
               </h1>
@@ -62,50 +63,40 @@ const Header = ({ handleWorkScroll, handleAboutScroll }) => {
               </div>
             </div>
             <Popover.Panel
-              className={`absolute right-0 z-10 w-11/12 p-4 ${
-                theme === "dark" ? "bg-slate-800" : "bg-white"
-              } shadow-md rounded-md`}
+              className={`absolute right-0 z-10 w-11/12 p-4 glass shadow-md rounded-2xl`}
             >
               <div className="grid grid-cols-1">
                 <Button onClick={handleWorkScroll}>Work</Button>
                 <Button onClick={handleAboutScroll}>About</Button>
-                {resume && (  // Update this condition
-                  <Button
-                    onClick={() => window.open("mailto:hello@chetanverma.com")}
-                  >
+                {resume && (
+                  <Button onClick={() => router.push("/resume")}>
                     Resume
                   </Button>
                 )}
-                <Button
-                  onClick={() => window.open("mailto:hello@chetanverma.com")}
-                >
-                  Contact
-                </Button>
+                <Button onClick={() => window.open(email)}>Contact</Button>
               </div>
             </Popover.Panel>
           </>
         )}
       </Popover>
       <div
-        className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          theme === "light" && "bg-white"
-        } dark:text-white top-0 z-10 tablet:flex`}
+        className={`mt-10 hidden glass rounded-full px-4 flex-row items-center justify-between sticky top-5 z-20 tablet:flex`}
       >
         <h1
           onClick={() => router.push("/")}
-          className="font-medium cursor-pointer mob:p-2 laptop:p-0"
+          className="font-semibold text-lg cursor-pointer mob:p-2 laptop:p-0 gradient-text"
         >
           {name}.
         </h1>
-        <div className="flex">
+        <div className="flex items-center">
           <Button onClick={handleWorkScroll}>Work</Button>
           <Button onClick={handleAboutScroll}>About</Button>
-          {resume && (  // Update this condition
+          {resume && (
             <Button onClick={() => router.push("/resume")} classes="first:ml-1">
               Resume
             </Button>
           )}
-          <Button onClick={() => window.open("mailto:alkeccg@gmail.com")}>
+          <Button type="primary" classes="!m-0 !ml-2" onClick={() => window.open(email)}>
             Contact
           </Button>
           {mounted && theme && data.darkMode && (
