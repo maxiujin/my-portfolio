@@ -13,6 +13,7 @@ import Cursor from "../components/Cursor";
 
 // Local Data
 import data from "../data/portfolio.json";
+import { useLanguage } from "../utils/LanguageContext";
 
 const SectionLabel = ({ children }) => (
   <div className="flex items-center gap-3 mb-6">
@@ -27,6 +28,7 @@ const SectionLabel = ({ children }) => (
 );
 
 export default function Home() {
+  const { t } = useLanguage();
   // Ref
   const workRef = useRef();
   const aboutRef = useRef();
@@ -83,17 +85,13 @@ export default function Home() {
             className="w-full laptop:w-2/5 aspect-[4/5] laptop:aspect-[3/4] rounded-2xl object-cover glow-card flex-shrink-0"
           />
           <div className="flex-1 min-w-0">
-          <div className="chip inline-flex mb-6 mob:ml-1">
-            <span className="h-2 w-2 rounded-full mr-2" style={{ background: "var(--accent-2)" }}></span>
-            Full stack &amp; indie game developer
-          </div>
           <div className="mt-2">
             <h1
               ref={textOne}
               className="text-4xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 font-bold w-4/5 mob:w-full laptop:w-4/5"
             >
               {(() => {
-                const words = data.headerTaglineOne.split(" ");
+                const words = t("hero1").split(" ");
                 const last = words.pop();
                 return (
                   <>
@@ -108,27 +106,27 @@ export default function Home() {
               ref={textTwo}
               className="text-4xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 font-bold w-full laptop:w-4/5 gradient-text"
             >
-              {data.headerTaglineTwo}
+              {t("hero2")}
             </h1>
             <br></br>
             <h1
               ref={textThree}
               className="text-xl tablet:text-3xl laptop:text-3xl p-1 tablet:p-2 font-medium w-full laptop:w-3/5 opacity-70"
             >
-              {data.headerTaglineThree}
+              {t("hero3")}
             </h1>
             <br></br>
             <h1
               ref={textFour}
               className="text-xl tablet:text-3xl laptop:text-3xl p-1 tablet:p-2 font-medium w-full laptop:w-3/5 opacity-70"
             >
-              {data.headerTaglineFour}
+              {t("hero4")}
             </h1>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2 p-1 tablet:p-2">
-            <Button type="primary" onClick={handleWorkScroll}>See my work</Button>
-            <Button onClick={() => window.open("/resume")}>View resume</Button>
+            <Button type="primary" onClick={handleWorkScroll}>{t("btn_work")}</Button>
+            <Button onClick={() => window.open("/resume")}>{t("btn_resume")}</Button>
           </div>
 
           <Socials className="mt-4 laptop:mt-8" />
@@ -136,10 +134,10 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
-          <SectionLabel>Machine learning &amp; computer vision</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold mb-2">Object detection, CNN networks</h1>
+          <SectionLabel>{t("section_ml")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-2">{t("title_ml")}</h1>
           <p className="text-base laptop:text-lg opacity-60 mb-6 w-full laptop:w-3/5">
-            AI work applying convolutional neural networks to real-time detection tasks.
+            {t("desc_ml")}
           </p>
           <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
             <div>
@@ -152,8 +150,8 @@ export default function Home() {
                 loop
                 playsInline
               ></video>
-              <h2 className="mt-3 text-lg font-semibold">Nutrition detector</h2>
-              <p className="text-sm opacity-50">CNN-based object detection identifying food items and nutrition info in real time.</p>
+              <h2 className="mt-3 text-lg font-semibold">{t("title_nutrition")}</h2>
+              <p className="text-sm opacity-50">{t("desc_nutrition")}</p>
             </div>
             <div>
               <video
@@ -165,17 +163,17 @@ export default function Home() {
                 loop
                 playsInline
               ></video>
-              <h2 className="mt-3 text-lg font-semibold">Real-time currency exchange</h2>
-              <p className="text-sm opacity-50">Real-time object detection and recognition for currency exchange rates.</p>
+              <h2 className="mt-3 text-lg font-semibold">{t("title_currency")}</h2>
+              <p className="text-sm opacity-50">{t("desc_currency")}</p>
             </div>
           </div>
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
-          <SectionLabel>Gaming</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold mb-2">Unreal Engine gameplay</h1>
+          <SectionLabel>{t("section_gaming")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-2">{t("title_unreal")}</h1>
           <p className="text-base laptop:text-lg opacity-60 mb-6 w-full laptop:w-3/5">
-            Modeled and textured the vehicle in Blender, imported it into Unreal Engine, and coded the driving logic in C++.
+            {t("desc_unreal")}
           </p>
           <video
             className="w-full rounded-xl glow-card"
@@ -189,8 +187,8 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={workRef}>
-          <SectionLabel>Shipped products</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold">Shipped products</h1>
+          <SectionLabel>{t("section_shipped")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_shipped")}</h1>
 
           <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-3 gap-6">
             {data.projects
@@ -209,8 +207,8 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
-          <SectionLabel>Data intensive projects</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold">Data intensive projects</h1>
+          <SectionLabel>{t("section_data")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_data")}</h1>
 
           <div className="mt-8 laptop:mt-10 mosaic-grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 gap-3">
             {data.projects
@@ -228,8 +226,8 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
-          <SectionLabel>Data &amp; analytics</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold">Data visualization</h1>
+          <SectionLabel>{t("section_dataviz")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">{t("title_dataviz")}</h1>
 
           <div className="mt-8 laptop:mt-10 mosaic-grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 gap-3">
             {data.dataprojects.map((dataproject) => (
@@ -245,8 +243,8 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
-          <SectionLabel>Capabilities</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold">Skills</h1>
+          <SectionLabel>{t("section_skills")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">{t("title_skills")}</h1>
           <div className="mt-8 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.skills.map((service, index) => (
               <ServiceCard
@@ -259,10 +257,10 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <SectionLabel>About</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold mb-6">About me</h1>
+          <SectionLabel>{t("section_about")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-6">{t("title_about")}</h1>
           <p className="text-lg laptop:text-2xl w-full laptop:w-3/5 opacity-70" style={{ lineHeight: "1.6" }}>
-            {data.aboutpara}
+            {t("about")}
           </p>
         </div>
         <Footer />
