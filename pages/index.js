@@ -76,7 +76,13 @@ export default function Home() {
           handleWorkScroll={handleWorkScroll}
           handleAboutScroll={handleAboutScroll}
         />
-        <div className="laptop:mt-24 mt-14">
+        <div className="laptop:mt-24 mt-14 flex flex-col laptop:flex-row items-start gap-10">
+          <img
+            src="/profile.png"
+            alt={data.name}
+            className="w-full laptop:w-2/5 aspect-[4/5] laptop:aspect-[3/4] rounded-2xl object-cover glow-card flex-shrink-0"
+          />
+          <div className="flex-1 min-w-0">
           <div className="chip inline-flex mb-6 mob:ml-1">
             <span className="h-2 w-2 rounded-full mr-2" style={{ background: "var(--accent-2)" }}></span>
             Full stack &amp; indie game developer
@@ -86,7 +92,16 @@ export default function Home() {
               ref={textOne}
               className="text-4xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 font-bold w-4/5 mob:w-full laptop:w-4/5"
             >
-              {data.headerTaglineOne}
+              {(() => {
+                const words = data.headerTaglineOne.split(" ");
+                const last = words.pop();
+                return (
+                  <>
+                    {words.join(" ")}{" "}
+                    <span className="wave-emoji">{last}</span>
+                  </>
+                );
+              })()}
             </h1>
             <br></br>
             <h1
@@ -117,13 +132,64 @@ export default function Home() {
           </div>
 
           <Socials className="mt-4 laptop:mt-8" />
+          </div>
+        </div>
+
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <SectionLabel>Machine learning &amp; computer vision</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-2">Object detection, CNN networks</h1>
+          <p className="text-base laptop:text-lg opacity-60 mb-6 w-full laptop:w-3/5">
+            AI work applying convolutional neural networks to real-time detection tasks.
+          </p>
+          <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
+            <div>
+              <video
+                className="w-full rounded-xl glow-card"
+                src="/nutrition-detector.mp4"
+                poster="/nutrition-detector-poster.jpg"
+                controls
+                muted
+                loop
+                playsInline
+              ></video>
+              <h2 className="mt-3 text-lg font-semibold">Nutrition detector</h2>
+              <p className="text-sm opacity-50">CNN-based object detection identifying food items and nutrition info in real time.</p>
+            </div>
+            <div>
+              <video
+                className="w-full rounded-xl glow-card"
+                src="/currency-exchange.mp4"
+                poster="/currency-exchange-poster.jpg"
+                controls
+                muted
+                loop
+                playsInline
+              ></video>
+              <h2 className="mt-3 text-lg font-semibold">Real-time currency exchange</h2>
+              <p className="text-sm opacity-50">Real-time object detection and recognition for currency exchange rates.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <SectionLabel>Gameplay demo</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-6">Unreal Engine gameplay</h1>
+          <video
+            className="w-full rounded-xl glow-card"
+            src="/unreal-demo.mp4"
+            poster="/unreal-demo-poster.jpg"
+            controls
+            muted
+            loop
+            playsInline
+          ></video>
         </div>
 
         <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={workRef}>
           <SectionLabel>Selected work</SectionLabel>
           <h1 className="text-3xl laptop:text-4xl font-bold">Full stack &amp; game projects</h1>
 
-          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6">
+          <div className="mt-8 laptop:mt-10 mosaic-grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 gap-3">
             {data.projects.map((project) => (
               <WorkCard
                 key={project.id}
@@ -140,7 +206,7 @@ export default function Home() {
           <SectionLabel>Data &amp; analytics</SectionLabel>
           <h1 className="text-3xl laptop:text-4xl font-bold">Data visualization</h1>
 
-          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6">
+          <div className="mt-8 laptop:mt-10 mosaic-grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 gap-3">
             {data.dataprojects.map((dataproject) => (
               <WorkCard
                 key={dataproject.id}
