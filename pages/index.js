@@ -172,8 +172,11 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
-          <SectionLabel>Gameplay demo</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold mb-6">Unreal Engine gameplay</h1>
+          <SectionLabel>Gaming</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-2">Unreal Engine gameplay</h1>
+          <p className="text-base laptop:text-lg opacity-60 mb-6 w-full laptop:w-3/5">
+            Modeled and textured the vehicle in Blender, imported it into Unreal Engine, and coded the driving logic in C++.
+          </p>
           <video
             className="w-full rounded-xl glow-card"
             src="/unreal-demo.mp4"
@@ -186,19 +189,41 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={workRef}>
-          <SectionLabel>Selected work</SectionLabel>
-          <h1 className="text-3xl laptop:text-4xl font-bold">Full stack &amp; game projects</h1>
+          <SectionLabel>Shipped products</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">Shipped products</h1>
+
+          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-3 gap-6">
+            {data.projects
+              .filter((project) => ["soku-trade", "mainu", "2"].includes(project.id))
+              .map((project) => (
+                <div key={project.id} className="h-72 laptop:h-96">
+                  <WorkCard
+                    img={project.imageSrc}
+                    name={project.title}
+                    description={project.description}
+                    onClick={() => project.url && window.open(project.url)}
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
+
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <SectionLabel>Data intensive projects</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">Data intensive projects</h1>
 
           <div className="mt-8 laptop:mt-10 mosaic-grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 gap-3">
-            {data.projects.map((project) => (
-              <WorkCard
-                key={project.id}
-                img={project.imageSrc}
-                name={project.title}
-                description={project.description}
-                onClick={() => project.url && window.open(project.url)}
-              />
-            ))}
+            {data.projects
+              .filter((project) => !["soku-trade", "mainu", "2"].includes(project.id))
+              .map((project) => (
+                <WorkCard
+                  key={project.id}
+                  img={project.imageSrc}
+                  name={project.title}
+                  description={project.description}
+                  onClick={() => project.url && window.open(project.url)}
+                />
+              ))}
           </div>
         </div>
 
