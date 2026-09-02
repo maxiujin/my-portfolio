@@ -14,7 +14,7 @@ const Button = ({ children, type, onClick, classes }) => {
         } ${classes}`}
         style={{
           background: "linear-gradient(135deg, var(--accent-1), var(--accent-2))",
-          boxShadow: "0 8px 30px -8px rgba(124,58,237,0.6)",
+          boxShadow: "0 8px 30px -8px rgba(180,55,45,0.45)",
         }}
       >
         {children}

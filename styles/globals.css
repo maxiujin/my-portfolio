@@ -1,17 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Noto+Sans+JP:wght@400;500;700;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import "./markdown.css";
 
 :root {
-  --accent-1: #7c3aed;
-  --accent-2: #22d3ee;
-  --accent-3: #f472b6;
+  --bg: #f1e4c8;
+  --bg-soft: #e9dbba;
+  --ink: #1b1a20;
+  --ink-soft: rgba(27, 26, 32, 0.62);
+  --line: rgba(27, 26, 32, 0.16);
+  --accent-1: #cf4436;
+  --accent-2: #96261c;
+}
+
+html.dark {
+  --bg: #100e14;
+  --bg-soft: #19161f;
+  --ink: #f1e4c8;
+  --ink-soft: rgba(241, 228, 200, 0.62);
+  --line: rgba(241, 228, 200, 0.14);
+  --accent-1: #e2564a;
+  --accent-2: #b83a2c;
 }
 
 * {
-  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-family: "Noto Sans JP", "Hind", sans-serif;
+}
+
+h1 {
+  font-family: "Yuji Syuku", "Noto Sans JP", serif;
+  letter-spacing: 0.01em;
 }
 
 html {
@@ -19,19 +38,14 @@ html {
 }
 
 body {
-  @apply dark:bg-black dark:text-white;
-  background-color: #fff;
-  transition: background-color 0.3s ease;
-}
-
-body.dark,
-html.dark body {
-  background-color: #06060a;
+  background-color: var(--bg);
+  color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
   background: var(--accent-1);
-  color: #fff;
+  color: var(--bg);
 }
 
 ::-webkit-scrollbar {
@@ -41,46 +55,37 @@ html.dark body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--accent-1), var(--accent-2));
+  background: var(--accent-1);
   border-radius: 10px;
 }
 
-/* --- Ambient background blobs --- */
+/* --- Ink sun / corner motifs --- */
 .gradient-circle {
   position: fixed;
   pointer-events: none;
   z-index: 0;
-  top: -10%;
-  left: -10%;
-  height: 55vh;
-  width: 55vw;
-  opacity: 0.35;
-  filter: blur(90px);
+  top: -8%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 46vh;
+  width: 46vh;
+  opacity: 0.5;
+  filter: blur(30px);
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-1) 0%, transparent 70%);
-  animation: drift-a 22s ease-in-out infinite alternate;
+  background: radial-gradient(circle, var(--accent-1) 0%, var(--accent-1) 55%, transparent 78%);
 }
 .gradient-circle-bottom {
   position: fixed;
   pointer-events: none;
   z-index: 0;
   bottom: -15%;
-  right: -10%;
-  height: 60vh;
-  width: 50vw;
-  opacity: 0.3;
-  filter: blur(100px);
+  right: -8%;
+  height: 45vh;
+  width: 40vw;
+  opacity: 0.12;
+  filter: blur(70px);
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
-  animation: drift-b 26s ease-in-out infinite alternate;
-}
-@keyframes drift-a {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(6vw, 8vh) scale(1.15); }
-}
-@keyframes drift-b {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(-5vw, -6vh) scale(1.1); }
+  background: radial-gradient(circle, var(--ink) 0%, transparent 70%);
 }
 
 .noise-overlay {
@@ -88,77 +93,90 @@ html.dark body {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* --- Gradient text --- */
+/* Bare ink branches, corner decoration (paper-scroll feel) */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: -20px;
+  z-index: 1;
+  pointer-events: none;
+  width: 220px;
+  height: 220px;
+  opacity: 0.55;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+body::before {
+  left: -30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%231b1a20' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M10 20 C50 40 70 60 95 95'/%3E%3Cpath d='M40 35 L20 15'/%3E%3Cpath d='M55 50 L35 40'/%3E%3Cpath d='M70 68 L48 62'/%3E%3Cpath d='M85 85 L100 65'/%3E%3Cpath d='M60 55 L78 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+body::after {
+  right: -30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%231b1a20' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M190 20 C150 40 130 60 105 95'/%3E%3Cpath d='M160 35 L180 15'/%3E%3Cpath d='M145 50 L165 40'/%3E%3Cpath d='M130 68 L152 62'/%3E%3Cpath d='M115 85 L100 65'/%3E%3Cpath d='M140 55 L122 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+html.dark body::before,
+html.dark body::after {
+  opacity: 0.7;
+}
+html.dark body::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23f1e4c8' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M10 20 C50 40 70 60 95 95'/%3E%3Cpath d='M40 35 L20 15'/%3E%3Cpath d='M55 50 L35 40'/%3E%3Cpath d='M70 68 L48 62'/%3E%3Cpath d='M85 85 L100 65'/%3E%3Cpath d='M60 55 L78 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+html.dark body::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23f1e4c8' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M190 20 C150 40 130 60 105 95'/%3E%3Cpath d='M160 35 L180 15'/%3E%3Cpath d='M145 50 L165 40'/%3E%3Cpath d='M130 68 L152 62'/%3E%3Cpath d='M115 85 L100 65'/%3E%3Cpath d='M140 55 L122 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (max-width: 768px) {
+  body::before,
+  body::after {
+    width: 120px;
+    height: 120px;
+    opacity: 0.35;
+  }
+}
+
+/* --- Ink accent text (was gradient-text) --- */
 .gradient-text {
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2) 60%, var(--accent-3));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent-1);
 }
 
-/* --- Glass surface --- */
+/* --- Flat paper card surface (was glassmorphism) --- */
 .glass {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
-}
-html:not(.dark) .glass {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
 }
 
-/* --- Glow border card, used by WorkCard/ServiceCard --- */
+/* --- Ink hover card (was neon glow-card) --- */
 .glow-card {
   position: relative;
-  border-radius: 1.1rem;
-  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, border-color 0.35s ease;
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .glow-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px -20px rgba(124, 58, 237, 0.45);
-}
-.glow-card::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-.glow-card:hover::before {
-  opacity: 1;
+  transform: translateY(-5px);
+  border-color: var(--accent-1);
+  box-shadow: 0 16px 34px -18px rgba(0, 0, 0, 0.35);
 }
 
-/* --- Pill nav / chips --- */
+/* --- Pill chips --- */
 .chip {
   display: inline-flex;
   align-items: center;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--line);
   padding: 0.35rem 0.9rem;
   font-size: 0.8rem;
   opacity: 0.85;
   transition: all 0.25s ease;
 }
-html:not(.dark) .chip {
-  border-color: rgba(0, 0, 0, 0.1);
-}
 .chip:hover {
-  border-color: var(--accent-2);
+  border-color: var(--accent-1);
+  color: var(--accent-1);
   opacity: 1;
-  transform: translateY(-2px);
 }
 
 .gradient-shadow:hover::before {
@@ -169,10 +187,10 @@ html:not(.dark) .chip {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(-45deg, var(--accent-2) 0%, var(--accent-3) 100%);
+  background: var(--accent-1);
   transform: translate3d(0px, 20px, 0) scale(0.95);
   filter: blur(20px);
-  opacity: var(0.7);
+  opacity: 0.5;
   transition: opacity 0.3s;
   border-radius: inherit;
 }
