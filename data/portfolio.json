@@ -50,7 +50,7 @@
     {
       "id": "soku-trade",
       "title": "SokuTrade",
-      "description": "Free futures paper-trading simulator \u2014 live prices, real market news, and a gamified practice account with zero real money at risk.",
+      "description": "Futures paper-trading simulator with live prices, powered by Stripe subscription billing \u2014 secure Checkout, webhooks, and idempotent payment handling.",
       "imageSrc": "/sokutrade.jpg",
       "url": "https://www.sokutrade.com"
     },
