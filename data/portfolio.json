@@ -48,6 +48,13 @@
   ],
   "projects": [
     {
+      "id": "cliplegit",
+      "title": "ClipLegit",
+      "description": "All-purpose video editor for influencers \u2014 format and export viral clips for YouTube Shorts and TikTok, no watermark. Claude Code helped me with this.",
+      "imageSrc": "/cliplegit.jpg",
+      "url": "https://cliplegit.vercel.app/"
+    },
+    {
       "id": "soku-trade",
       "title": "SokuTrade",
       "description": "Futures paper-trading simulator with live prices, powered by Stripe subscription billing \u2014 secure Checkout, webhooks, and idempotent payment handling.",
