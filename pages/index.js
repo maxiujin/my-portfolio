@@ -190,18 +190,18 @@ export default function Home() {
           <SectionLabel>{t("section_shipped")}</SectionLabel>
           <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_shipped")}</h1>
 
-          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-3 gap-6">
+          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-3 gap-6 items-start">
             {data.projects
               .filter((project) => ["soku-trade", "mainu", "2"].includes(project.id))
               .map((project) => (
-                <div key={project.id} className="h-72 laptop:h-96">
-                  <WorkCard
-                    img={project.imageSrc}
-                    name={project.title}
-                    description={project.description}
-                    onClick={() => project.url && window.open(project.url)}
-                  />
-                </div>
+                <WorkCard
+                  key={project.id}
+                  img={project.imageSrc}
+                  name={project.title}
+                  description={project.description}
+                  techStack={project.techStack}
+                  onClick={() => project.url && window.open(project.url)}
+                />
               ))}
           </div>
         </div>
@@ -210,18 +210,18 @@ export default function Home() {
           <SectionLabel>{t("section_ai_products")}</SectionLabel>
           <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_ai_products")}</h1>
 
-          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6">
+          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6 items-start">
             {data.projects
               .filter((project) => ["cliplegit"].includes(project.id))
               .map((project) => (
-                <div key={project.id} className="h-72 laptop:h-96">
-                  <WorkCard
-                    img={project.imageSrc}
-                    name={project.title}
-                    description={project.description}
-                    onClick={() => project.url && window.open(project.url)}
-                  />
-                </div>
+                <WorkCard
+                  key={project.id}
+                  img={project.imageSrc}
+                  name={project.title}
+                  description={project.description}
+                  techStack={project.techStack}
+                  onClick={() => project.url && window.open(project.url)}
+                />
               ))}
           </div>
         </div>
@@ -230,7 +230,7 @@ export default function Home() {
           <SectionLabel>{t("section_data")}</SectionLabel>
           <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_data")}</h1>
 
-          <div className="mt-8 laptop:mt-10 mosaic-grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 gap-3">
+          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-4 items-start">
             {data.projects
               .filter((project) => !["soku-trade", "mainu", "2", "cliplegit"].includes(project.id))
               .map((project) => (
@@ -239,6 +239,8 @@ export default function Home() {
                   img={project.imageSrc}
                   name={project.title}
                   description={project.description}
+                  techStack={project.techStack}
+                  imgAspect="aspect-[11/5]"
                   onClick={() => project.url && window.open(project.url)}
                 />
               ))}

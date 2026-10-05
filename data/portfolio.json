@@ -1,6 +1,6 @@
 {
   "name": "Matthew Thompkins",
-  "headerTaglineOne": "Hello \ud83d\udc4b",
+  "headerTaglineOne": "Hello 👋",
   "headerTaglineTwo": "I'm Matthew - Full stack software developer with management experience",
   "headerTaglineThree": "Crafting Seamless Experiences: Expert in Frontend, Backend, SaaS platforms, Data Analytics & Visualization",
   "headerTaglineFour": " based in Pittsburgh, PA.",
@@ -50,72 +50,122 @@
     {
       "id": "cliplegit",
       "title": "ClipLegit",
-      "description": "All-purpose video editor for influencers \u2014 format and export viral clips for YouTube Shorts and TikTok, no watermark. Claude Code helped me with this.",
+      "description": "All-purpose video editor for influencers — format and export viral clips for YouTube Shorts and TikTok, no watermark. Claude Code helped me with this.",
       "imageSrc": "/cliplegit.jpg",
-      "url": "https://cliplegit.vercel.app/"
+      "url": "https://cliplegit.vercel.app/",
+      "techStack": {
+        "frontend": "Next.js, React, TypeScript, Tailwind CSS",
+        "backend": "Node.js API routes, FFmpeg (video processing)",
+        "deployment": "Vercel"
+      }
     },
     {
       "id": "soku-trade",
       "title": "SokuTrade",
-      "description": "Futures paper-trading simulator with live prices, powered by Stripe subscription billing \u2014 secure Checkout, webhooks, and idempotent payment handling.",
+      "description": "Futures paper-trading simulator with live prices, powered by Stripe subscription billing — secure Checkout, webhooks, and idempotent payment handling.",
       "imageSrc": "/sokutrade.jpg",
-      "url": "https://www.sokutrade.com"
+      "url": "https://www.sokutrade.com",
+      "techStack": {
+        "frontend": "Next.js, React, TypeScript, Clerk (auth)",
+        "backend": "Supabase (Postgres), Stripe, Resend, Yahoo Finance API, NHL API",
+        "deployment": "Vercel, Namecheap (domain)"
+      }
     },
     {
       "id": "mainu",
       "title": "Mainu (Steam & Android)",
-      "description": "Hand-drawn 2D action RPG published solo under Kanmai LLC. Join Tonu through a mall collecting capsule toys and battling bosses \u2014 8-language localization, full Steamworks integration.",
+      "description": "Hand-drawn 2D action RPG published solo under Kanmai LLC. Join Tonu through a mall collecting capsule toys and battling bosses — 8-language localization, full Steamworks integration.",
       "imageSrc": "/mainu-steam.jpg",
-      "url": "https://store.steampowered.com/app/3553610/Mainu/"
+      "url": "https://store.steampowered.com/app/3553610/Mainu/",
+      "techStack": {
+        "frontend": "Unity (C#), custom UI/localization pipeline",
+        "backend": "Steamworks SDK, JSON-driven 8-language localization, cloud saves",
+        "deployment": "Steam, Google Play (Android)"
+      }
     },
     {
       "id": "1",
       "title": "Goverment data-driven platform",
       "description": "MERN stack built in React.js, over 500k non-profit users",
       "imageSrc": "/parn1.png",
-      "url": ""
+      "url": "",
+      "techStack": {
+        "frontend": "React.js, Next.js",
+        "backend": "Node.js, Express, MongoDB (MERN)",
+        "deployment": "AWS (EC2, Elastic Beanstalk), Terraform"
+      }
     },
     {
       "id": "2",
       "title": "Winshu",
       "description": "Produced and designed a 4 v 4 bright colorful multiplayer game that has Chinese mythological creatures based on (Chinese guardian lions, aka lion dogs aka foo dogs). These lions have elemental powers such as fire, water, wood, metal and earth.",
       "imageSrc": "/winshu_gaming.png",
-      "url": "https://store.steampowered.com/app/2018020/Winshu/"
+      "url": "https://store.steampowered.com/app/2018020/Winshu/",
+      "techStack": {
+        "frontend": "Unity (C#)",
+        "backend": "Multiplayer networking (Photon/Mirror), Steamworks SDK",
+        "deployment": "Steam"
+      }
     },
     {
       "id": "3",
       "title": "NFT shopping landing page",
       "description": "Modern UI design",
       "imageSrc": "/parn2.png",
-      "url": "https://tribez-marketplace.web.app/"
+      "url": "https://tribez-marketplace.web.app/",
+      "techStack": {
+        "frontend": "React, Tailwind CSS",
+        "backend": "Firebase (Firestore, Auth)",
+        "deployment": "Firebase Hosting"
+      }
     },
     {
       "id": "4",
       "title": "Scheduling app",
       "description": "AWS deployed app with React.js",
       "imageSrc": "/parn3.png",
-      "url": "https://foamlaundry.com.au/"
+      "url": "https://foamlaundry.com.au/",
+      "techStack": {
+        "frontend": "React.js",
+        "backend": "Node.js, Express, REST API",
+        "deployment": "AWS"
+      }
     },
     {
       "id": "5",
       "title": "E-Commerce clothing one stop shop",
       "description": "Built online payment system",
       "imageSrc": "/parn4.png",
-      "url": "https://plus2clothing.com"
+      "url": "https://plus2clothing.com",
+      "techStack": {
+        "frontend": "React",
+        "backend": "Node.js, Express, MongoDB, Stripe (payments)",
+        "deployment": "AWS"
+      }
     },
     {
       "id": "6",
       "title": "Data-Driven E-Commerce Site",
       "description": "AWS+React+Typescript",
       "imageSrc": "/parn5.png",
-      "url": "https://doogma.com/"
+      "url": "https://doogma.com/",
+      "techStack": {
+        "frontend": "React, TypeScript",
+        "backend": "Node.js, PostgreSQL",
+        "deployment": "AWS"
+      }
     },
     {
       "id": "AI Machine Learning SaaS Platform",
       "title": "AI Machine Learning SaaS Platform",
       "description": "Used Python's Pytorch for machine learning and building a data-driven platform",
       "imageSrc": "/parn6.png",
-      "url": "https://www.centerya.com/"
+      "url": "https://www.centerya.com/",
+      "techStack": {
+        "frontend": "React",
+        "backend": "Python, Django, PyTorch",
+        "deployment": "AWS"
+      }
     }
   ],
   "skills": [
@@ -143,14 +193,14 @@
   ],
   "aboutpara": "I am a versatile Full Stack Engineer and my tech stack includes the MERN (MongoDB, Express, React, Node.js) stack with GraphQL and Typescript. For machine learning and AI I use Python/Django. With a passion for crafting efficient and user-friendly web applications. My commitment to clean code, problem-solving, and staying up-to-date with the latest industry trends makes me a valuable asset to any development team. Let's collaborate to build innovative solutions that drive results. I am bilingual in English and Mandarin Chinese. Additionally, I have a passion for playing and watching ice hockey!",
   "resume": {
-    "tagline": "\ud83d\udc4b I'm a software engineer and indie game developer.",
-    "description": "Senior Full Stack Developer and Indie Game Developer with experience across web, mobile, cloud, and Unity-based game development. Proven ability to ship complete products end-to-end \u2014 frontend, backend, infrastructure, localization, and publishing. Strong background in Angular, React, TypeScript, AWS, and C#, with public trust and top secret clearance experience.",
+    "tagline": "👋 I'm a software engineer and indie game developer.",
+    "description": "Senior Full Stack Developer and Indie Game Developer with experience across web, mobile, cloud, and Unity-based game development. Proven ability to ship complete products end-to-end — frontend, backend, infrastructure, localization, and publishing. Strong background in Angular, React, TypeScript, AWS, and C#, with public trust and top secret clearance experience.",
     "experiences": [
       {
         "id": "1",
-        "dates": "Jan 2024 \u2013 Present",
+        "dates": "Jan 2024 – Present",
         "type": "Founder & Lead Game Developer",
-        "position": "Kanmai LLC \u2014 Mainu (Steam & Android)",
+        "position": "Kanmai LLC — Mainu (Steam & Android)",
         "bullets": [
           "Designed, developed, and published a complete commercial game using Unity and C#.",
           "Built combat systems, AI, progression, save/load, UI, and particle systems.",
@@ -161,9 +211,9 @@
       },
       {
         "id": "2",
-        "dates": "Jun 2024 \u2013 Apr 2025",
+        "dates": "Jun 2024 – Apr 2025",
         "type": "Contract",
-        "position": "Angular Developer \u2014 Alaska Northstar (FEMA Contractor)",
+        "position": "Angular Developer — Alaska Northstar (FEMA Contractor)",
         "bullets": [
           "Developed accessible UI components for FloodSmart.gov using Angular.",
           "Built responsive, WCAG-compliant interfaces aligned with federal design standards.",
@@ -172,9 +222,9 @@
       },
       {
         "id": "3",
-        "dates": "Jul 2022 \u2013 Oct 2023",
+        "dates": "Jul 2022 – Oct 2023",
         "type": "Full Time",
-        "position": "Full Stack Developer \u2014 BCT Partners",
+        "position": "Full Stack Developer — BCT Partners",
         "bullets": [
           "Led development of a nonprofit analytics dashboard using the MERN stack and Next.js.",
           "Deployed scalable infrastructure with AWS EC2, Elastic Beanstalk, and Terraform.",
@@ -183,9 +233,9 @@
       },
       {
         "id": "4",
-        "dates": "Jan 2020 \u2013 Jun 2022",
+        "dates": "Jan 2020 – Jun 2022",
         "type": "Full Time",
-        "position": "AI / QA Engineer \u2014 Meetkai",
+        "position": "AI / QA Engineer — Meetkai",
         "bullets": [
           "Built NLP tooling using Python and PyTorch.",
           "Automated QA workflows with Selenium WebDriver for AI systems."
@@ -193,9 +243,9 @@
       },
       {
         "id": "5",
-        "dates": "Jan 2018 \u2013 Nov 2019",
+        "dates": "Jan 2018 – Nov 2019",
         "type": "Full Time",
-        "position": "Full Stack Developer \u2014 Edvoyage",
+        "position": "Full Stack Developer — Edvoyage",
         "bullets": [
           "Developed a live streaming platform and Android app using React and Nest.js.",
           "Deployed cloud infrastructure on AWS with a focus on scalability and reliability."
