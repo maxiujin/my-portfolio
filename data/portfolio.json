@@ -60,6 +60,17 @@
       }
     },
     {
+      "id": "anisho",
+      "title": "Ani-Sho (open source)",
+      "description": "Account-free anime debate app — pick an avatar, get paired with a random fan, and debate. MIT licensed, no sign-ups, ads, or tracking.",
+      "imageSrc": "/anisho.svg",
+      "url": "https://github.com/maxiujin/anisho",
+      "techStack": {
+        "frontend": "Next.js 15, React 19, TypeScript",
+        "backend": "Next.js API routes, httpOnly-cookie guest sessions, in-memory matchmaking"
+      }
+    },
+    {
       "id": "soku-trade",
       "title": "SokuTrade",
       "description": "Futures paper-trading simulator with live prices, powered by Stripe subscription billing — secure Checkout, webhooks, and idempotent payment handling.",

@@ -227,12 +227,32 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <SectionLabel>{t("section_opensource")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_opensource")}</h1>
+
+          <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6 items-start">
+            {data.projects
+              .filter((project) => ["anisho"].includes(project.id))
+              .map((project) => (
+                <WorkCard
+                  key={project.id}
+                  img={project.imageSrc}
+                  name={project.title}
+                  description={project.description}
+                  techStack={project.techStack}
+                  onClick={() => project.url && window.open(project.url)}
+                />
+              ))}
+          </div>
+        </div>
+
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
           <SectionLabel>{t("section_data")}</SectionLabel>
           <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_data")}</h1>
 
           <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-4 items-start">
             {data.projects
-              .filter((project) => !["soku-trade", "mainu", "2", "cliplegit"].includes(project.id))
+              .filter((project) => !["soku-trade", "mainu", "2", "cliplegit", "anisho"].includes(project.id))
               .map((project) => (
                 <WorkCard
                   key={project.id}
