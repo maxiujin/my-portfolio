@@ -134,8 +134,22 @@ export default function Home() {
         </div>
 
         <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <SectionLabel>{t("section_ai_tools")}</SectionLabel>
+          <h1 className="text-3xl laptop:text-4xl font-bold mb-8">{t("title_ai_tools")}</h1>
+          <div className="flex flex-wrap items-center gap-6">
+            <div className="bg-white rounded-2xl p-6 laptop:p-8 glow-card flex items-center justify-center">
+              <img src="/claude-logo.png" alt="Claude" className="h-9 laptop:h-11 w-auto" />
+            </div>
+            <div className="bg-white rounded-2xl p-6 laptop:p-8 glow-card flex items-center justify-center">
+              <img src="/chatgpt-logo.png" alt="ChatGPT" className="h-9 laptop:h-11 w-auto" />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
           <SectionLabel>{t("section_ml")}</SectionLabel>
           <h1 className="text-3xl laptop:text-4xl font-bold mb-2">{t("title_ml")}</h1>
+          <span className="chip inline-flex mb-4">{t("badge_pre_ai")}</span>
           <p className="text-base laptop:text-lg opacity-60 mb-6 w-full laptop:w-3/5">
             {t("desc_ml")}
           </p>

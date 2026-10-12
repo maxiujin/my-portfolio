@@ -5,23 +5,23 @@
 @import "./markdown.css";
 
 :root {
-  --bg: #efeee7;
-  --bg-soft: #e2dfd2;
-  --ink: #2a2924;
-  --ink-soft: rgba(42, 41, 36, 0.62);
-  --line: rgba(42, 41, 36, 0.18);
-  --accent-1: #8a8880;
-  --accent-2: #5f5d54;
+  --bg: #0b0d10;
+  --bg-soft: #14171b;
+  --ink: #f5f7fa;
+  --ink-soft: rgba(245, 247, 250, 0.6);
+  --line: rgba(245, 247, 250, 0.14);
+  --accent-1: #22e5ff;
+  --accent-2: #0ea5b8;
 }
 
 html.dark {
-  --bg: #201f1b;
-  --bg-soft: #2a2925;
-  --ink: #efeee7;
-  --ink-soft: rgba(239, 238, 231, 0.62);
-  --line: rgba(239, 238, 231, 0.16);
-  --accent-1: #b3b0a4;
-  --accent-2: #8a8880;
+  --bg: #050608;
+  --bg-soft: #0d0f12;
+  --ink: #ffffff;
+  --ink-soft: rgba(255, 255, 255, 0.62);
+  --line: rgba(255, 255, 255, 0.12);
+  --accent-1: #2bf0ff;
+  --accent-2: #06b6d4;
 }
 
 * {
@@ -84,7 +84,8 @@ body {
 
 /* --- Accent text (was gradient-text) --- */
 .gradient-text {
-  color: var(--ink);
+  color: var(--accent-1);
+  text-shadow: 0 0 22px rgba(34, 229, 255, 0.35);
 }
 
 /* --- Flat surface (was glassmorphism) --- */
