@@ -16,10 +16,10 @@ const StackLine = ({ label, value }) => {
 const WorkCard = ({ img, name, description, techStack, imgAspect = "aspect-video", onClick }) => {
   return (
     <div
-      className="glow-card glass overflow-hidden p-2 laptop:p-3 link cursor-pointer group flex flex-col"
+      className="glow-card overflow-hidden p-2 laptop:p-3 link cursor-pointer group flex flex-col"
       onClick={onClick}
     >
-      <div className={`relative rounded-lg overflow-hidden w-full ${imgAspect} transition-all ease-out duration-300`}>
+      <div className={`relative overflow-hidden w-full ${imgAspect} transition-all ease-out duration-300`}>
         <img
           alt={name}
           className="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-all ease-out duration-500"

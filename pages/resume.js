@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import Win98Window from "../components/Win98Window";
 import ProjectResume from "../components/ProjectResume";
 import Cursor from "../components/Cursor";
 import Head from "next/head";
@@ -34,34 +35,36 @@ const Resume = () => {
       <div className="noise-overlay"></div>
       <div className="container relative z-10 mx-auto mb-10">
         <Header isBlog />
-        <div className="mt-14 laptop:mt-20 glass glow-card rounded-3xl p-6 tablet:p-10 laptop:p-14">
-          <div className="flex flex-col tablet:flex-row tablet:items-end tablet:justify-between gap-6">
-            <div>
-              <h1 className="text-4xl laptop:text-6xl font-bold">{data.name}</h1>
-              <p className="mt-3 text-lg laptop:text-xl gradient-text font-semibold">{resume.tagline}</p>
+        <div className="mt-14 laptop:mt-20">
+          <Win98Window title={`${data.name}.exe - Resume`}>
+            <div className="flex flex-col tablet:flex-row tablet:items-end tablet:justify-between gap-6">
+              <div>
+                <h1 className="text-4xl laptop:text-6xl font-bold">{data.name}</h1>
+                <p className="mt-3 text-lg laptop:text-xl gradient-text font-semibold">{resume.tagline}</p>
+              </div>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="link">
+                <Button type="primary">{t("btn_download_pdf")}</Button>
+              </a>
             </div>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="link">
-              <Button type="primary">{t("btn_download_pdf")}</Button>
-            </a>
-          </div>
-          <p className="mt-6 text-base laptop:text-lg opacity-70 w-full laptop:w-4/5" style={{ lineHeight: 1.6 }}>{resume.description}</p>
+            <p className="mt-6 text-base laptop:text-lg opacity-70 w-full laptop:w-4/5" style={{ lineHeight: 1.6 }}>{resume.description}</p>
+          </Win98Window>
         </div>
         <Section title={t("section_ai_workflow")}>
           <div className="flex flex-wrap">{resume.aiWorkflow?.map((item, i) => <Chip key={i}>{item}</Chip>)}</div>
         </Section>
         <Section title={t("section_experience")}>
-          <div className="glass glow-card rounded-3xl p-6 tablet:p-10">
+          <Win98Window title="experience.exe">
             {resume.experiences?.map((exp) => (
-              <div key={exp.id} className="border-b border-white/10 last:border-none pb-6 mb-6 last:pb-0 last:mb-0">
+              <div key={exp.id} className="border-b border-black/10 last:border-none pb-6 mb-6 last:pb-0 last:mb-0">
                 <ProjectResume dates={exp.dates} type={exp.type} position={exp.position} bullets={exp.bullets} />
               </div>
             ))}
-          </div>
+          </Win98Window>
         </Section>
         <div className="grid grid-cols-1 laptop:grid-cols-2 gap-6 mt-14 laptop:mt-20">
           <div>
             <Section title={t("section_education")}>
-              <div className="glass glow-card rounded-3xl p-6 tablet:p-8 h-full">
+              <Win98Window title="education.exe" className="h-full">
                 {(Array.isArray(resume.education) ? resume.education : [resume.education]).map((edu, i) => (
                   <div key={i} className="mb-5 last:mb-0">
                     <h2 className="text-xl font-semibold">{edu.universityName}</h2>
@@ -69,14 +72,14 @@ const Resume = () => {
                     {edu.universityPara && <p className="mt-2 text-sm opacity-60">{edu.universityPara}</p>}
                   </div>
                 ))}
-              </div>
+              </Win98Window>
             </Section>
           </div>
           <div>
             <Section title={t("section_languages_spoken")}>
-              <div className="glass glow-card rounded-3xl p-6 tablet:p-8 h-full">
+              <Win98Window title="languages.exe" className="h-full">
                 {resume.others?.map((lang, i) => <p key={i} className="text-lg mb-2">{lang}</p>)}
-              </div>
+              </Win98Window>
             </Section>
           </div>
         </div>

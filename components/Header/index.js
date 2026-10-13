@@ -9,7 +9,7 @@ import { locales } from "../../utils/i18n";
 
 const GlobeIcon = () => (
   <svg
-    className="h-5 w-5"
+    className="h-4 w-4"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -32,28 +32,30 @@ const LanguageSwitcher = () => {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="text-sm p-2 laptop:p-2 m-1 laptop:m-2 rounded-full flex items-center gap-1 transition-all ease-out duration-300 hover:bg-black/5 dark:hover:bg-white/10 link"
+        className="m-1 laptop:m-1.5 flex items-center gap-1 link"
         aria-label="Change language"
       >
         <GlobeIcon />
       </button>
       {open && (
-        <div className="absolute right-0 mt-1 glass rounded-xl overflow-hidden shadow-md z-30 min-w-[110px]">
-          {locales.map((l) => (
-            <button
-              key={l.code}
-              type="button"
-              onClick={() => {
-                setLocale(l.code);
-                setOpen(false);
-              }}
-              className={`w-full text-left text-sm px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10 transition-colors ${
-                locale === l.code ? "font-semibold" : "opacity-70"
-              }`}
-            >
-              {l.label}
-            </button>
-          ))}
+        <div className="window absolute right-0 mt-1 z-30 min-w-[110px]">
+          <div className="window-body !my-1">
+            {locales.map((l) => (
+              <button
+                key={l.code}
+                type="button"
+                onClick={() => {
+                  setLocale(l.code);
+                  setOpen(false);
+                }}
+                className={`w-full !min-w-0 !block text-left text-sm my-0.5 ${
+                  locale === l.code ? "default" : ""
+                }`}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
@@ -62,6 +64,20 @@ const LanguageSwitcher = () => {
 
 const Header = ({ handleWorkScroll, handleAboutScroll }) => {
   const router = useRouter();
+  const goToWork = () => {
+    if (handleWorkScroll) {
+      handleWorkScroll();
+    } else {
+      router.push("/#work");
+    }
+  };
+  const goToAbout = () => {
+    if (handleAboutScroll) {
+      handleAboutScroll();
+    } else {
+      router.push("/#about");
+    }
+  };
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { t } = useLanguage();
@@ -75,98 +91,82 @@ const Header = ({ handleWorkScroll, handleAboutScroll }) => {
 
   return (
     <>
-      <Popover className="glass rounded-2xl block tablet:hidden mt-5 relative z-20">
-        {({ open }) => (
-          <>
-            <div className="flex items-center justify-between p-2 laptop:p-0">
-              <h1
-                onClick={() => router.push("/")}
-                className="font-semibold text-lg p-2 laptop:p-0 link gradient-text"
-              >
-                {name}.
-              </h1>
-
-              <div className="flex items-center">
-                <LanguageSwitcher />
-                {data.darkMode && (
-                  <Button
-                    onClick={() =>
-                      setTheme(theme === "dark" ? "light" : "dark")
-                    }
-                  >
-                    <img
-                      className="h-6"
-                      src={`/images/${
-                        theme === "dark" ? "moon.svg" : "sun.svg"
-                      }`}
-                    ></img>
-                  </Button>
-                )}
-
-                <Popover.Button>
-                  <img
-                    className="h-5"
-                    src={`/images/${
-                      !open
-                        ? theme === "dark"
-                          ? "menu-white.svg"
-                          : "menu.svg"
-                        : theme === "light"
-                        ? "cancel.svg"
-                        : "cancel-white.svg"
-                    }`}
-                  ></img>
-                </Popover.Button>
+      <div className="window block tablet:hidden mt-5 relative z-20">
+        <Popover>
+          {({ open }) => (
+            <>
+              <div className="title-bar">
+                <div
+                  className="title-bar-text"
+                  onClick={() => router.push("/")}
+                  style={{ cursor: "pointer" }}
+                >
+                  {name}.exe
+                </div>
+                <div className="title-bar-controls">
+                  <LanguageSwitcher />
+                  {data.darkMode && (
+                    <button
+                      aria-label="Help"
+                      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    ></button>
+                  )}
+                  <Popover.Button aria-label={open ? "Close" : "Maximize"}></Popover.Button>
+                </div>
               </div>
-            </div>
-            <Popover.Panel
-              className={`absolute right-0 z-10 w-11/12 p-4 glass shadow-md rounded-2xl`}
-            >
-              <div className="grid grid-cols-1">
-                <Button onClick={handleWorkScroll}>{t("nav_work")}</Button>
-                <Button onClick={handleAboutScroll}>{t("nav_about")}</Button>
-                {resume && (
-                  <Button onClick={() => router.push("/resume")}>
-                    {t("nav_resume")}
-                  </Button>
-                )}
-                <Button onClick={() => window.open(email)}>{t("nav_contact")}</Button>
-              </div>
-            </Popover.Panel>
-          </>
-        )}
-      </Popover>
-      <div
-        className={`mt-10 hidden glass rounded-full px-4 flex-row items-center justify-between sticky top-5 z-20 tablet:flex`}
-      >
-        <h1
-          onClick={() => router.push("/")}
-          className="font-semibold text-lg cursor-pointer mob:p-2 laptop:p-0 gradient-text"
-        >
-          {name}.
-        </h1>
-        <div className="flex items-center">
-          <Button onClick={handleWorkScroll}>{t("nav_work")}</Button>
-          <Button onClick={handleAboutScroll}>{t("nav_about")}</Button>
-          {resume && (
-            <Button onClick={() => router.push("/resume")} classes="first:ml-1">
-              {t("nav_resume")}
-            </Button>
+              <Popover.Panel className="window-body">
+                <div className="grid grid-cols-1 gap-1">
+                  <Button onClick={goToWork}>{t("nav_work")}</Button>
+                  <Button onClick={goToAbout}>{t("nav_about")}</Button>
+                  {resume && (
+                    <Button onClick={() => router.push("/resume")}>
+                      {t("nav_resume")}
+                    </Button>
+                  )}
+                  <Button onClick={() => window.open(email)}>{t("nav_contact")}</Button>
+                </div>
+              </Popover.Panel>
+            </>
           )}
-          <Button type="primary" classes="!m-0 !ml-2" onClick={() => window.open(email)}>
-            {t("nav_contact")}
-          </Button>
-          <LanguageSwitcher />
-          {mounted && theme && data.darkMode && (
-            <Button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              <img
-                className="h-6"
-                src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-              ></img>
+        </Popover>
+      </div>
+
+      <div className="window mt-10 hidden tablet:block sticky top-5 z-20">
+        <div className="title-bar">
+          <div
+            className="title-bar-text"
+            onClick={() => router.push("/")}
+            style={{ cursor: "pointer" }}
+          >
+            {name}.exe - Portfolio
+          </div>
+          <div className="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div className="window-body !my-2 flex flex-row items-center justify-between flex-wrap">
+          <div className="flex items-center flex-wrap">
+            <Button onClick={goToWork}>{t("nav_work")}</Button>
+            <Button onClick={goToAbout}>{t("nav_about")}</Button>
+            {resume && (
+              <Button onClick={() => router.push("/resume")}>
+                {t("nav_resume")}
+              </Button>
+            )}
+            <Button type="primary" onClick={() => window.open(email)}>
+              {t("nav_contact")}
             </Button>
-          )}
+          </div>
+          <div className="flex items-center">
+            <LanguageSwitcher />
+            {mounted && theme && data.darkMode && (
+              <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+                {theme === "dark" ? "☀" : "🖥"}
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </>

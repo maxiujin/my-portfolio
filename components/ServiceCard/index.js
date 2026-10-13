@@ -9,7 +9,7 @@ const ServiceCard = ({ name, description }) => {
     setMounted(true);
   }, []);
   return (
-    <div className="glow-card glass w-full p-5 mob:p-6 link">
+    <div className="glow-card w-full p-5 mob:p-6 link">
       <div className="flex items-center gap-2">
         <span className="h-2 w-2 rounded-full" style={{ background: "linear-gradient(135deg, var(--accent-1), var(--accent-2))" }}></span>
         <h1 className="text-2xl laptop:text-3xl font-semibold">{name ? name : "Heading"}</h1>

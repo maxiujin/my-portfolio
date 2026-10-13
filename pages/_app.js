@@ -1,3 +1,4 @@
+import "98.css";
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "../utils/LanguageContext";
