@@ -49,7 +49,7 @@ export default function Home() {
 
   useIsomorphicLayoutEffect(() => {
     stagger(
-      [textOne.current, textTwo.current, textThree.current, textFour.current],
+      [textOne.current, textTwo.current, textThree.current],
       { y: 40, x: -10, transform: "scale(0.95) skew(10deg)" },
       { y: 0, x: 0, transform: "scale(1)" }
     );
@@ -120,13 +120,6 @@ export default function Home() {
             >
               {t("hero3")}
             </h1>
-            <br></br>
-            <h1
-              ref={textFour}
-              className="text-xl tablet:text-3xl laptop:text-3xl p-1 tablet:p-2 font-medium w-full laptop:w-3/5 opacity-70"
-            >
-              {t("hero4")}
-            </h1>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2 p-1 tablet:p-2">
@@ -134,8 +127,53 @@ export default function Home() {
             <Button onClick={() => window.open("/resume")}>{t("btn_resume")}</Button>
           </div>
 
-          <Socials className="mt-4 laptop:mt-8" />
           </div>
+          </Win98Window>
+        </div>
+
+        <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={workRef} style={{ scrollMarginTop: "100px" }}>
+          <Win98Window title="shipped-products.exe">
+            <SectionLabel>{t("section_shipped")}</SectionLabel>
+            <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_shipped")}</h1>
+
+            <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-8 items-start">
+              {data.projects
+                .filter((project) => ["soku-trade", "mainu", "2"].includes(project.id))
+                .map((project) => (
+                  <WorkCard
+                    key={project.id}
+                    img={project.imageSrc}
+                    name={project.title}
+                    description={project.description}
+                    techStack={project.techStack}
+                    large
+                    onClick={() => project.url && window.open(project.url)}
+                  />
+                ))}
+            </div>
+          </Win98Window>
+        </div>
+
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <Win98Window title="built-with-claude.exe">
+            <SectionLabel>{t("section_ai_products")}</SectionLabel>
+            <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_ai_products")}</h1>
+
+            <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6 items-start">
+              {data.projects
+                .filter((project) => ["cliplegit"].includes(project.id))
+                .map((project) => (
+                  <WorkCard
+                    key={project.id}
+                    img={project.imageSrc}
+                    name={project.title}
+                    description={project.description}
+                    techStack={project.techStack}
+                    large
+                    onClick={() => project.url && window.open(project.url)}
+                  />
+                ))}
+            </div>
           </Win98Window>
         </div>
 
@@ -209,50 +247,6 @@ export default function Home() {
               loop
               playsInline
             ></video>
-          </Win98Window>
-        </div>
-
-        <div className="mt-20 laptop:mt-40 p-2 laptop:p-0" ref={workRef} style={{ scrollMarginTop: "100px" }}>
-          <Win98Window title="shipped-products.exe">
-            <SectionLabel>{t("section_shipped")}</SectionLabel>
-            <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_shipped")}</h1>
-
-            <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-3 gap-6 items-start">
-              {data.projects
-                .filter((project) => ["soku-trade", "mainu", "2"].includes(project.id))
-                .map((project) => (
-                  <WorkCard
-                    key={project.id}
-                    img={project.imageSrc}
-                    name={project.title}
-                    description={project.description}
-                    techStack={project.techStack}
-                    onClick={() => project.url && window.open(project.url)}
-                  />
-                ))}
-            </div>
-          </Win98Window>
-        </div>
-
-        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
-          <Win98Window title="built-with-claude.exe">
-            <SectionLabel>{t("section_ai_products")}</SectionLabel>
-            <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_ai_products")}</h1>
-
-            <div className="mt-8 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6 items-start">
-              {data.projects
-                .filter((project) => ["cliplegit"].includes(project.id))
-                .map((project) => (
-                  <WorkCard
-                    key={project.id}
-                    img={project.imageSrc}
-                    name={project.title}
-                    description={project.description}
-                    techStack={project.techStack}
-                    onClick={() => project.url && window.open(project.url)}
-                  />
-                ))}
-            </div>
           </Win98Window>
         </div>
 

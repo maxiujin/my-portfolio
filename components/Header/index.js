@@ -3,6 +3,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Button from "../Button";
+import Socials from "../Socials";
 import data from "../../data/portfolio.json";
 import { useLanguage } from "../../utils/LanguageContext";
 import { locales } from "../../utils/i18n";
@@ -125,6 +126,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll }) => {
                   )}
                   <Button onClick={() => window.open(email)}>{t("nav_contact")}</Button>
                 </div>
+                <Socials className="mt-2 justify-center" />
               </Popover.Panel>
             </>
           )}
@@ -160,6 +162,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll }) => {
             </Button>
           </div>
           <div className="flex items-center">
+            <Socials className="mr-2" />
             <LanguageSwitcher />
             {mounted && theme && data.darkMode && (
               <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
