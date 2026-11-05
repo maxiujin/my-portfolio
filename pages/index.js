@@ -15,6 +15,7 @@ import Cursor from "../components/Cursor";
 // Local Data
 import data from "../data/portfolio.json";
 import { useLanguage } from "../utils/LanguageContext";
+import { translations } from "../utils/i18n";
 
 const SectionLabel = ({ children }) => (
   <div className="flex items-center gap-3 mb-6">
@@ -29,7 +30,8 @@ const SectionLabel = ({ children }) => (
 );
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const education = translations[locale]?.resume?.education || data.resume.education;
   // Ref
   const workRef = useRef();
   const aboutRef = useRef();
@@ -325,6 +327,30 @@ export default function Home() {
                   name={service.title}
                   description={service.description}
                 />
+              ))}
+            </div>
+          </Win98Window>
+        </div>
+
+        <div className="mt-20 laptop:mt-32 p-2 laptop:p-0">
+          <Win98Window title="education.exe">
+            <SectionLabel>{t("section_education")}</SectionLabel>
+            <h1 className="text-3xl laptop:text-4xl font-bold">{t("section_education")}</h1>
+            <div className="mt-8 grid grid-cols-1 laptop:grid-cols-2 gap-6">
+              {education.map((edu, i) => (
+                <div key={i} className="flex items-center gap-5">
+                  <div className="bg-white p-3 glow-card flex items-center justify-center flex-shrink-0">
+                    <img
+                      src={data.resume.education[i]?.logo}
+                      alt={edu.universityName}
+                      className="h-16 w-16 laptop:h-20 laptop:w-20 object-contain"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="text-xl laptop:text-2xl font-semibold">{edu.universityName}</h2>
+                    <p className="text-base opacity-60">{edu.universityDate}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </Win98Window>

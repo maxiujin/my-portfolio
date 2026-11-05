@@ -266,12 +266,14 @@
     "education": [
       {
         "universityName": "University of Pittsburgh",
-        "universityDate": "M.S. Public Administration",
+        "universityDate": "Master's in Chinese & Public Administration",
+        "logo": "/pitt-logo.png",
         "universityPara": ""
       },
       {
         "universityName": "Cal Poly Humboldt",
-        "universityDate": "B.A. International Business",
+        "universityDate": "Bachelor's in International Business & Chinese",
+        "logo": "/humboldt-logo.png",
         "universityPara": ""
       }
     ],

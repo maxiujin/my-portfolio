@@ -164,12 +164,12 @@ export const translations = {
       education: [
         {
           universityName: "University of Pittsburgh",
-          universityDate: "行政学修士(M.S. Public Administration)",
+          universityDate: "中国語・行政学修士",
           universityPara: "",
         },
         {
           universityName: "Cal Poly Humboldt",
-          universityDate: "国際ビジネス学士(B.A. International Business)",
+          universityDate: "国際ビジネス・中国語学士",
           universityPara: "",
         },
       ],
@@ -287,12 +287,12 @@ export const translations = {
       education: [
         {
           universityName: "University of Pittsburgh",
-          universityDate: "公共管理硕士(M.S. Public Administration)",
+          universityDate: "中文与公共管理硕士",
           universityPara: "",
         },
         {
           universityName: "Cal Poly Humboldt",
-          universityDate: "国际商务学士(B.A. International Business)",
+          universityDate: "国际商务与中文学士",
           universityPara: "",
         },
       ],
@@ -410,12 +410,12 @@ export const translations = {
       education: [
         {
           universityName: "University of Pittsburgh",
-          universityDate: "Maestría en Administración Pública (M.S. Public Administration)",
+          universityDate: "Maestría en Chino y Administración Pública",
           universityPara: "",
         },
         {
           universityName: "Cal Poly Humboldt",
-          universityDate: "Licenciatura en Negocios Internacionales (B.A. International Business)",
+          universityDate: "Licenciatura en Negocios Internacionales y Chino",
           universityPara: "",
         },
       ],
